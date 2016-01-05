@@ -3,37 +3,50 @@
 
   angular
     .module('lunchesFe')
-    .controller('MainController', MainController);
+    .controller('MainController', function($log, WeeklyMenu) {
 
-  /** @ngInject */
-  function MainController($timeout, webDevTec, toastr) {
-    var vm = this;
+      var vm = this;
 
-    vm.awesomeThings = [];
-    vm.classAnimation = '';
-    vm.creationDate = 1451136899723;
-    vm.showToastr = showToastr;
+      vm.init = function() {
+        vm.weeklyMenu = null;
 
-    activate();
+        WeeklyMenu.fetchCurrentWeek()
+          .then(function(menu) {
+            vm.weeklyMenu = menu;
+          });
 
-    function activate() {
-      getWebDevTec();
-      $timeout(function() {
-        vm.classAnimation = 'rubberBand';
-      }, 4000);
-    }
+        vm.sizes = ['Большая', 'Средняя'];
 
-    function showToastr() {
-      toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
-      vm.classAnimation = '';
-    }
+        vm.order = {
+          mon: {},
+          tue: {},
+          wed: {},
+          thu: {},
+          fri: {},
+        };
+      };
 
-    function getWebDevTec() {
-      vm.awesomeThings = webDevTec.getTec();
+      vm.toggleExlcude = function(component) {
+        component.excluded = !component.excluded;
+      };
 
-      angular.forEach(vm.awesomeThings, function(awesomeThing) {
-        awesomeThing.rank = Math.random();
-      });
-    }
-  }
+      vm.cssClassForWeekday = function(weekday) {
+        return weekday.alias;
+      };
+
+      vm.toCommaString = function(list) {
+        return list.join(', ');
+      };
+
+
+      vm.selectSizeForWeekday = function(weekday, size) {
+        vm.order.weekdays[weekday].size = size;
+      };
+
+      vm.sizeForWeekday = function(weekday) {
+        return vm.order.weekdays[weekday].size;
+      };
+
+      vm.init();
+    });
 })();

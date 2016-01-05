@@ -3,30 +3,37 @@
 
   angular
     .module('lunchesFe')
-    .directive('acmeNavbar', acmeNavbar);
-
-  /** @ngInject */
-  function acmeNavbar() {
-    var directive = {
-      restrict: 'E',
-      templateUrl: 'app/components/navbar/navbar.html',
-      scope: {
-          creationDate: '='
-      },
-      controller: NavbarController,
-      controllerAs: 'vm',
-      bindToController: true
-    };
-
-    return directive;
-
-    /** @ngInject */
-    function NavbarController(moment) {
+    .controller('NavbarDirectiveController', function() {
       var vm = this;
 
-      // "vm.creation" is avaible by directive option "bindToController: true"
-      vm.relativeDate = moment(vm.creationDate).fromNow();
-    }
-  }
+      vm.init = function() {
+        vm.today = null;
+
+        vm.weekdays = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт'];
+      };
+
+      vm.isActive = function(weekday) {
+        return weekday === vm.today;
+      };
+
+      vm.goTo = function(weekday) {
+        vm.today = weekday;
+      };
+
+      vm.init();
+    })
+
+    .directive('navbar', function() {
+      var directive = {
+        restrict: 'E',
+        templateUrl: 'app/components/navbar/navbar.html',
+        scope: {},
+        controller: 'NavbarDirectiveController',
+        controllerAs: 'vm',
+        bindToController: true
+      };
+
+      return directive;
+    });
 
 })();
