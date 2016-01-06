@@ -1,10 +1,10 @@
 <navbar></navbar>
 
 <div class="weekdays">
-  <div class="weekday" ng-repeat="weekday in vm.weeklyMenu" ng-class="vm.cssClassForWeekday(weekday)">
+  <div class="weekday" ng-repeat="weekday in vm.weeklyMenu" ng-class="weekday.alias">
     <div class="cover">
       <div class="menu">
-        <h1>Меню на {{ weekday.title }}</h1>
+        <h1>Меню на {{ vm.weekdayTitleFor(weekday.title) }}</h1>
         <p>{{ weekday.components.meat.title }}</p>
         <p>{{ weekday.components.garnish.title }}</p>
         <p>{{ weekday.components.salad.title }}</p>
@@ -33,12 +33,12 @@
         <div class="size col-sm-6">
           <h2>Размер</h2>
           <div class="btn-group" role="group">
-            <a href="#/" class="btn btn-default" ng-repeat="size in vm.sizes" ng-class="{active: vm.sizeForWeekday(weekday.alias) == size}" ng-click="vm.selectSize(size)">
-              <span class="glyphicon" ng-class="vm.cssClassForSize(size)"></span>
-              <span>{{ size }}</span>
+            <a href="#/" class="btn btn-default" ng-repeat="size in vm.sizes" ng-class="{active: vm.hasThatSize(weekday, size)}" ng-click="vm.selectSize(weekday, size)">
+              <span class="glyphicon" ng-class="{'glyphicon-resize-small': vm.isMediumSize(size), 'glyphicon-resize-full': vm.isBigSize(size)}"></span>
+              <span>{{ vm.sizeTitleFor(size) }}</span>
             </a>
           </div>
-          <h2>Итого: 65 грн</h2>
+          <h2>Итого: {{ vm.totalPrice(weekday) }} грн</h2>
         </div>
     </div>
   </div>
