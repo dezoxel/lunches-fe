@@ -14,7 +14,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav" >
             <li ng-repeat="weekday in vm.weekdays" ng-click="vm.goTo(weekday)" ng-class="{active: vm.isActive(weekday)}">
-              <a href="#/">{{ weekday }}</a>
+              <a href="#/">{{ vm.weekdayTitleFor(weekday) }}</a>
             </li>
           </ul>
         </div>

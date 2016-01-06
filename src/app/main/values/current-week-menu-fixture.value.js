@@ -40,7 +40,6 @@
             weight: 300,
             ingredients: ['Гречка'],
             excluded: true,
-            price: 20.03
           },
           salad: {
             title: 'Салат из сельдерея',
@@ -48,7 +47,6 @@
             weight: 100,
             ingredients: ['Сельдерей'],
             excluded: false,
-            price: 16.00
           }
         }
       },

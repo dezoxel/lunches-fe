@@ -3,21 +3,40 @@
 
   angular
     .module('lunchesFe')
-    .controller('NavbarDirectiveController', function() {
+    .controller('NavbarDirectiveController', function($document) {
       var vm = this;
 
-      vm.init = function() {
-        vm.today = null;
+      // TODO: Move to constant?
+      vm.weekdaysMap = {
+        mon: 'Пн',
+        tue: 'Вт',
+        wed: 'Ср',
+        thu: 'Чт',
+        fri: 'Пт'
+      };
 
-        vm.weekdays = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт'];
+      vm.init = function() {
+        vm.currentWeekday = null;
+
+        vm.weekdays = Object.keys(vm.weekdaysMap);
+      };
+
+      vm.weekdayTitleFor = function(weekday) {
+        return vm.weekdaysMap[weekday];
       };
 
       vm.isActive = function(weekday) {
-        return weekday === vm.today;
+        return weekday === vm.currentWeekday;
       };
 
       vm.goTo = function(weekday) {
-        vm.today = weekday;
+        vm.currentWeekday = weekday;
+        vm.scrollTo(weekday);
+      };
+
+      vm.scrollTo = function(weekday) {
+        var weekdayElement = angular.element(document.getElementById(weekday));
+        $document.scrollToElementAnimated(weekdayElement);
       };
 
       vm.init();
