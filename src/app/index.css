@@ -48,11 +48,23 @@ body {
 }
 
 .weekdays .mon .cover {
-  background-image: url('1.jpg');
+  background-image: url('../assets/images/covers/week1/mon.jpg');
 }
 
 .weekdays .tue .cover {
-  background-image: url('2.jpg');
+  background-image: url('../assets/images/covers/week1/tue.jpg');
+}
+
+.weekdays .wed .cover {
+  background-image: url('../assets/images/covers/week1/wed.jpg');
+}
+
+.weekdays .thu .cover {
+  background-image: url('../assets/images/covers/week1/thu.jpg');
+}
+
+.weekdays .fri .cover {
+  background-image: url('../assets/images/covers/week1/fri.jpg');
 }
 
 .weekdays .weekday .menu {
