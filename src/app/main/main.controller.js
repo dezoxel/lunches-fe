@@ -3,11 +3,13 @@
 
   angular
     .module('lunchesFe')
-    .controller('MainController', function($log, $document, WeeklyMenu) {
+    .controller('MainController', function(WeeklyMenu, currentWeek) {
 
       var vm = this;
 
-      vm.init = function() {
+      vm.init = function(currentWeek) {
+        vm._currentWeek = currentWeek;
+
         vm.weeklyMenu = {};
         vm.order = {};
 
@@ -25,21 +27,12 @@
         big: 'Большая'
       };
 
-      // TODO: Move to constant?
-      vm.weekdaysMap = {
-        mon: 'Пн',
-        tue: 'Вт',
-        wed: 'Ср',
-        thu: 'Чт',
-        fri: 'Пт'
-      };
-
       vm.sizeTitleFor = function(size) {
         return vm.sizesMap[size];
       };
 
       vm.weekdayTitleFor = function(weekday) {
-        return vm.weekdaysMap[weekday];
+        return vm._currentWeek.titleFor(weekday);
       };
 
       vm.totalPrice = function(weekday) {
@@ -88,32 +81,23 @@
       };
 
       vm.addToBasket = function(weekday) {
-        vm.scrollTo(vm.weekdayAfterThis(weekday.alias));
+        vm._currentWeek.setCurrentDayTo(vm.nextWeekdayAfter(weekday.alias));
         // TODO: Copy only what we need
         vm.order[weekday.alias] = angular.copy(weekday);
       };
 
-      vm.weekdayAfterThis = function(weekday) {
-        var weekdaysArray = Object.keys(vm.weekdaysMap);
+
+      vm.nextWeekdayAfter = function(weekday) {
+        var weekdaysArray = vm._currentWeek.getWeekdays();
         var currenWeekdayIndex = weekdaysArray.indexOf(weekday);
         var nextWeekday = weekdaysArray[currenWeekdayIndex + 1];
         return nextWeekday;
       };
 
-      vm.scrollTo = function(weekday) {
-        var el = document.getElementById(weekday);
-        if (!el) {
-          return ;
-        }
-
-        var $el = angular.element(el);
-        $document.scrollToElementAnimated($el);
-      };
-
-      vm.isNeedDisableOrderButton = function(weekday) {
+      vm.isNothingSelected = function(weekday) {
         return vm.totalPrice(weekday) === 0;
       };
 
-      vm.init();
+      vm.init(currentWeek);
     });
 })();

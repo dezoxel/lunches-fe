@@ -4,7 +4,7 @@
   <div class="weekday" ng-repeat="weekday in vm.weeklyMenu" ng-class="weekday.alias" id="{{weekday.alias}}">
     <div class="cover">
       <div class="menu">
-        <h1>Меню на {{vm.weekdayTitleFor(weekday.title)}}</h1>
+        <h1>Меню на {{vm.weekdayTitleFor(weekday.alias)}}</h1>
         <p>{{weekday.components.meat.title}}</p>
         <p>{{weekday.components.garnish.title}}</p>
         <p>{{weekday.components.salad.title}}</p>
@@ -43,6 +43,6 @@
     </div>
   </div>
   <div class="make-order">
-    <button type="button" class="btn btn-primary btn-lg center-block" ng-click="vm.addToBasket(weekday)" ng-disabled="vm.isNeedDisableOrderButton(weekday)">Заказать</button>
+    <button type="button" class="btn btn-primary btn-lg center-block" ng-click="vm.addToBasket(weekday)" ng-disabled="vm.isNothingSelected(weekday)">Добавить в корзину</button>
   </div>
 </div>

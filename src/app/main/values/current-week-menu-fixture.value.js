@@ -24,7 +24,7 @@
             meat: 35,
             garnish: 30,
             salad: 25
-          },
+          }
         },
         components: {
           meat: {
@@ -32,21 +32,21 @@
             type: 'meat',
             weight: 200,
             ingredients: ['Курица'],
-            excluded: false,
+            excluded: false
           },
           garnish: {
             title: 'Гречка',
             type: 'garnish',
             weight: 300,
             ingredients: ['Гречка'],
-            excluded: true,
+            excluded: true
           },
           salad: {
             title: 'Салат из сельдерея',
             type: 'salad',
             weight: 100,
             ingredients: ['Сельдерей'],
-            excluded: false,
+            excluded: false
           }
         }
       },
@@ -71,7 +71,7 @@
             meat: 45,
             garnish: 40,
             salad: 35
-          },
+          }
         },
         components: {
           meat: {
@@ -115,7 +115,7 @@
             meat: 45,
             garnish: 40,
             salad: 35
-          },
+          }
         },
         components: {
           meat: {
@@ -159,7 +159,7 @@
             meat: 45,
             garnish: 40,
             salad: 35
-          },
+          }
         },
         components: {
           meat: {
@@ -203,7 +203,7 @@
             meat: 45,
             garnish: 40,
             salad: 35
-          },
+          }
         },
         components: {
           meat: {
@@ -225,6 +225,6 @@
             excluded: true
           }
         }
-      },
+      }
     });
 })();

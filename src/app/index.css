@@ -4,7 +4,8 @@
 
 body {
   padding-bottom: 40px;
-  color: #5a5a5a;
+  color: white;
+  background-color: #333333;
 }
 
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
@@ -26,9 +27,38 @@ body {
   padding-right: 15px;
   padding-left: 15px;
   border-radius: 4px;
+
+  background-color: black;
+  border-color: white;
+
+  margin: 15px;
+
+  border-width: 0;
+  opacity: .8;
 }
 .navbar-wrapper .navbar .container {
   width: auto;
+}
+
+.navbar-wrapper .navbar-nav > li > a {
+  color: white;
+  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.navbar-wrapper .navbar-nav > li > a:focus,
+.navbar-wrapper .navbar-nav > li > a:hover,
+.navbar-wrapper .navbar-nav .active > a {
+  background-color: #FF4B00;
+}
+
+
+.navbar-wrapper .navbar-brand {
+  color: white;
+  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+  font-size: 20px;
+  text-transform: uppercase;
 }
 
 .weekdays {
@@ -42,7 +72,7 @@ body {
 }
 
 .weekdays .weekday .cover {
-  height: 400px;
+  height: 500px;
   background-size: cover;
   margin: 0;
 }
@@ -73,39 +103,56 @@ body {
   left: 20%;
   top: 70px;
   text-align: center;
-  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+  text-shadow: 0 2px 3px rgba(0,0,0,.9);
   color: white;
   font-size: 21px;
 }
 
 .weekdays .weekday .composition .list-group-item {
-  background-color: #b6dfb6;
-  border-color: #8cce8c;
+  background-color: #A4C000;
+  border-width: 0;
 }
 
 .weekdays .weekday .composition .list-group-item-text {
-  color: #555;
+  color: #666;
 }
 
 .weekdays .weekday .composition .list-group-item-heading {
-  color: #398439;
+  color: white;
 }
 
 .weekdays .weekday .composition .exclude {
-  background-color: white;
-  border-color: #adadad;
+  background-color: #374000;
 }
 
 .weekdays .weekday .composition .exclude .list-group-item-heading {
-  color: #5a5a5a;
+  color: #ccc;
 }
 
 .footer {
 }
 
-.weekdays .weekday .make-order{
-  background-color: #999999;
+.weekdays .weekday .make-order {
+  background-color: black;
   padding: 5px;
+}
+
+.weekdays .weekday .btn-primary {
+  background-color: #FF4B00;
+  border-color: #7D3C00;
+  outline: none;
+}
+
+.weekdays .weekday .btn-default.active {
+  color: white;
+  background-color: #A4C000;
+  border-width: 0;
+}
+
+.weekdays .weekday .btn-default {
+  color: #ccc;
+  background-color: #374000;
+  border-width: 0;
 }
 
 @media (max-width: 320px) {
