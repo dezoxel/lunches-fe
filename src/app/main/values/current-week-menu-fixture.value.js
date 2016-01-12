@@ -30,21 +30,30 @@
           meat: {
             title: 'Куриная котлета',
             type: 'meat',
-            weight: 200,
+            weight: {
+              big: 400,
+              medium: 200
+            },
             ingredients: ['Курица'],
             excluded: false
           },
           garnish: {
             title: 'Гречка',
             type: 'garnish',
-            weight: 300,
+            weight: {
+              big: 600,
+              medium: 300
+            },
             ingredients: ['Гречка'],
             excluded: true
           },
           salad: {
             title: 'Салат из сельдерея',
             type: 'salad',
-            weight: 100,
+            weight: {
+              big: 200,
+              medium: 100
+            },
             ingredients: ['Сельдерей'],
             excluded: false
           }
@@ -76,19 +85,28 @@
         components: {
           meat: {
             title: 'Свиной биток',
-            weight: 240,
+            weight: {
+              big: 480,
+              medium: 240
+            },
             ingredients: ['Свинина'],
             excluded: false
           },
           garnish: {
             title: 'Рис с овощами',
-            weight: 300,
+            weight: {
+              big: 600,
+              medium: 300
+            },
             ingredients: ['Рис', 'Овощи'],
             excluded: false
           },
           salad: {
             title: 'Салат из свеклы с сыром',
-            weight: 100,
+            weight: {
+              big: 200,
+              medium: 100
+            },
             ingredients: ['Свекла, Сыр'],
             excluded: true
           }
@@ -120,19 +138,28 @@
         components: {
           meat: {
             title: 'Свиной биток',
-            weight: 240,
+            weight: {
+              big: 480,
+              medium: 240
+            },
             ingredients: ['Свинина'],
             excluded: false
           },
           garnish: {
             title: 'Рис с овощами',
-            weight: 300,
+            weight: {
+              big: 600,
+              medium: 300
+            },
             ingredients: ['Рис', 'Овощи'],
             excluded: false
           },
           salad: {
             title: 'Салат из свеклы с сыром',
-            weight: 100,
+            weight: {
+              big: 200,
+              medium: 100
+            },
             ingredients: ['Свекла, Сыр'],
             excluded: true
           }
@@ -164,19 +191,28 @@
         components: {
           meat: {
             title: 'Свиной биток',
-            weight: 240,
+            weight: {
+              big: 480,
+              medium: 240
+            },
             ingredients: ['Свинина'],
             excluded: false
           },
           garnish: {
             title: 'Рис с овощами',
-            weight: 300,
+            weight: {
+              big: 600,
+              medium: 300
+            },
             ingredients: ['Рис', 'Овощи'],
             excluded: false
           },
           salad: {
             title: 'Салат из свеклы с сыром',
-            weight: 100,
+            weight: {
+              big: 200,
+              medium: 100
+            },
             ingredients: ['Свекла, Сыр'],
             excluded: true
           }
@@ -208,19 +244,28 @@
         components: {
           meat: {
             title: 'Свиной биток',
-            weight: 240,
+            weight: {
+              big: 480,
+              medium: 240
+            },
             ingredients: ['Свинина'],
             excluded: false
           },
           garnish: {
             title: 'Рис с овощами',
-            weight: 300,
+            weight: {
+              big: 600,
+              medium: 300
+            },
             ingredients: ['Рис', 'Овощи'],
             excluded: false
           },
           salad: {
             title: 'Салат из свеклы с сыром',
-            weight: 100,
+            weight: {
+              big: 200,
+              medium: 100
+            },
             ingredients: ['Свекла, Сыр'],
             excluded: true
           }
