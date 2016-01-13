@@ -15,13 +15,23 @@
           thu: 'Чт',
           fri: 'Пт'
         };
+
+        this._weekdays = this.getWeekdays();
       }
 
       CurrentWeek.prototype.getWeekdays = function() {
-        return Object.keys(this._titlesMap);
+        if (!this._weekdays) {
+          this._weekdays = Object.keys(this._titlesMap);
+        }
+
+        return this._weekdays;
       };
 
       CurrentWeek.prototype.setCurrentDayTo = function(weekday) {
+        if (this._weekdays.indexOf(weekday) === -1) {
+          return;
+        }
+
         this._currentWeekday = weekday;
 
         this.scrollTo(weekday);
